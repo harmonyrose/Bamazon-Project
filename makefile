@@ -3,7 +3,7 @@ CFLAGS=-g -Wall
 
 default: bamprog
 
-bamprog: main.o bamazon.o bamazon.o
+bamprog: main.o bamazon.o
 	$(CC) $(CFLAGS) -o bamprog main.o bamazon.o bamazon.o
 
 main.o: main.c bamazon.h
