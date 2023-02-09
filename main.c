@@ -15,6 +15,7 @@ int main(int argc, char **argv){
 	else
 	{
 		read_db(argv[1]);
+		printf("yay!\n");
 	}
 
 }
