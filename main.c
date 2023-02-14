@@ -6,16 +6,15 @@
 
 int main(int argc, char **argv){
 
-	if (argc < 2)
-	{
+	// read the file from the command line
+	if (argc < 2){
 		printf("File not found!\n");
-		return(1);
+		return -1;
 	}
 
 	else
-	{
 		read_db(argv[1]);
-		printf("yay!\n");
-	}
+		show_items();
+
 
 }
