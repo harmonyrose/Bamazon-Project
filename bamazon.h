@@ -2,6 +2,7 @@
 #define MAX_ITEM_CHARS 32
 #define MAX_PURCHASE 10
 typedef enum { clothes, electronics, tools, toys } category;
+
 typedef struct {
 	int itemnum;
 	category category;
@@ -11,6 +12,7 @@ typedef struct {
 	double cost;
 	int onsale;
 } item;
+
 int read_db(char *filename);
 
 int write_db(char *filename);
