@@ -4,6 +4,30 @@
 
 #include "bamazon.h"
 
+char **split(char str[], char tok[], int *num_elements){
+	char count_str[255];
+	strcpy(count_str, str);
+	char *tokens[100];
+	int strings_in_str = 0;
+	char *pch = strtok(count_str, tok);
+	while (pch != NULL){
+		tokens[strings_in_str] = pch;
+		pch = strtok(NULL, tok);
+		strings_in_str++;
+	}
+	char **array = malloc(sizeof(char*)*strings_in_str);
+	if (!array)
+		return NULL;
+	for (int i = 0; i < strings_in_str; i++){
+		array[i] = malloc(strlen(tokens[i])+1);
+		if (!array[i])
+			return NULL;
+		strcpy(array[i], tokens[i]);
+	}
+	*num_elements = strings_in_str;
+	return array;
+}
+
 int main(int argc, char **argv){
 
 	// read the file from the command line
@@ -11,10 +35,87 @@ int main(int argc, char **argv){
 		printf("File not found!\n");
 		return -1;
 	}
-
 	else
 		read_db(argv[1]);
-		show_items();
+
+	// allow the user to enter as a shopper or bamazon
+	char user[15];
+	printf("Enter user name: ");
+	scanf("%s", user);
+	if (strcmp(user, "shopper") == 0)
+		printf("Welcome shopper!\n");
+	else if (strcmp(user, "bamazon") == 0)
+		printf("Welcome bamazon user!\n");
+	else {
+		printf("Invalid user!\n");
+		exit(1);
+	}
+
+	// reads commands from the terminal
+	char command[100];
+	while (strcmp(command, "quit") != 0 && strcmp(command, "exit") != 0){
+		printf("Enter a command: ");
+		scanf("%s", command);
+		int num_strs;
+		char **input = split(command, " ", &num_strs);
+		
+		if (strcmp(user, "bamazon") == 0){
+
+			if (strcmp(input[0], "add") == 0) {
+				// FUNCTION CALL
+			}
+
+			else if (strcmp(input[0], "delete") == 0) {
+				// FUNCTION CALL
+			}
+
+			else if (strcmp(input[0], "updatecost") == 0) {
+				// FUNCTION CALL
+			}
+		
+			else if (strcmp(input[0], "updatequantity") == 0) {
+				// FUNCTION CALL
+			}
+		
+			else if (strcmp(input[0], "save") == 0) {
+				// FUNCTION CALL
+			}
+
+			else if (strcmp(input[0], "quit") == 0) {
+				// FUNCTION CALL
+			}
+		}
+
+		
+		if (strcmp(input[0], "showitems") == 0) {
+			show_items();
+		}
+		
+		else if (strcmp(input[0], "showcategory") == 0) {
+			// FUNCTION CALL
+		}
+
+		else if (strcmp(input[0], "showcategorycost") == 0) {
+			// FUNCTION CALL
+		}
+
+		else if (strcmp(input[0], "showcategorysize") == 0) {
+			// FUNCTION CALL
+		}
+
+		else if (strcmp(input[0], "purchase") == 0) {
+			// FUNCTION CALL
+		}
+
+		else if (strcmp(input[0], "exit") == 0) {
+			// FUNCTION CALL
+		}
+
+		else {
+			printf("Invalid command!\n");
+		}
 
 
+		
+	}
 }
