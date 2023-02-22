@@ -1,10 +1,10 @@
 CC=gcc
 CFLAGS=-g -Wall
 
-default: bamprog
+default: bamazon
 
-bamprog: main.o bamazon.o
-	$(CC) $(CFLAGS) -o bamprog main.o bamazon.o
+bamazon: main.o bamazon.o
+	$(CC) $(CFLAGS) -o bamazon main.o bamazon.o
 
 main.o: main.c bamazon.h
 	$(CC) $(CFLAGS) -c main.c
@@ -13,4 +13,4 @@ bamazon.o: bamazon.c bamazon.h
 	$(CC) $(CFLAGS) -c bamazon.c
 
 clean: 
-	rm -f bamprog *.o
+	rm -f bamazon *.o
