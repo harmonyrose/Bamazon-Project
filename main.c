@@ -41,11 +41,7 @@ int main(int argc, char **argv){
 	// allow the user to enter as a shopper or bamazon
 	char user[15];
 	printf("Enter user name: ");
-<<<<<<< HEAD
 	scanf("%s%*c", user);
-=======
-	scanf("%s", user);
->>>>>>> bde3640c88a0b5661932dc2912653e32c2ef120b
 	if (strcmp(user, "shopper") == 0)
 		printf("Welcome shopper!\n");
 	else if (strcmp(user, "bamazon") == 0)
@@ -56,7 +52,6 @@ int main(int argc, char **argv){
 	}
 
 	// reads commands from the terminal
-<<<<<<< HEAD
 	char command[255];
 	while (strcmp(command, "quit") != 0 && strcmp(command, "exit") != 0){
 		printf("Enter a command: ");
@@ -69,26 +64,14 @@ int main(int argc, char **argv){
 		int num_strs;
 		char **input = split(command, " ", &num_strs);
 	
-=======
-	char command[100];
-	while (strcmp(command, "quit") != 0 && strcmp(command, "exit") != 0){
-		printf("Enter a command: ");
-		scanf("%s", command);
-		int num_strs;
-		char **input = split(command, " ", &num_strs);
->>>>>>> bde3640c88a0b5661932dc2912653e32c2ef120b
 		
 		if (strcmp(user, "bamazon") == 0){
 
 			if (strcmp(input[0], "add") == 0) {
-<<<<<<< HEAD
 
 				for (int i =0; i < num_strs; i++){
 					printf("%s ",input[i]);
 				}
-=======
-				// FUNCTION CALL
->>>>>>> bde3640c88a0b5661932dc2912653e32c2ef120b
 			}
 
 			else if (strcmp(input[0], "delete") == 0) {
@@ -110,7 +93,6 @@ int main(int argc, char **argv){
 			else if (strcmp(input[0], "quit") == 0) {
 				// FUNCTION CALL
 			}
-<<<<<<< HEAD
 
 		
 			else if (strcmp(input[0], "showitems") == 0) {
@@ -143,40 +125,5 @@ int main(int argc, char **argv){
 
 			}
 		}	
-=======
-		}
-
-		
-		if (strcmp(input[0], "showitems") == 0) {
-			show_items();
-		}
-		
-		else if (strcmp(input[0], "showcategory") == 0) {
-			// FUNCTION CALL
-		}
-
-		else if (strcmp(input[0], "showcategorycost") == 0) {
-			// FUNCTION CALL
-		}
-
-		else if (strcmp(input[0], "showcategorysize") == 0) {
-			// FUNCTION CALL
-		}
-
-		else if (strcmp(input[0], "purchase") == 0) {
-			// FUNCTION CALL
-		}
-
-		else if (strcmp(input[0], "exit") == 0) {
-			// FUNCTION CALL
-		}
-
-		else {
-			printf("Invalid command!\n");
-		}
-
-
-		
->>>>>>> bde3640c88a0b5661932dc2912653e32c2ef120b
 	}
 }
