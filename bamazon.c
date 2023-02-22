@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "bamazon.h"
 
 
@@ -8,28 +9,66 @@ static int num_items = 0;
 static item *purchased[MAX_PURCHASE];
 static int purchased_items  = 0;
 
+static char *categories[] = {"clothes", "electronics", "tools", "toys"};
 
+
+// reads the database filename into the internal data structure db
 int read_db(char *filename){
 
-	FILE *fp;
-	fp = fopen(filename, "r");
-	if (fp){
-		printf("Success!");
+	FILE *fin = fopen(filename, "r");
+
+	if (fin == NULL)
+		return -1;
+
+	int itemnum, quantity, onsale;
+	char name[MAX_ITEM_CHARS], category[12];
+	char size;
+	double cost;
+
+	while(fscanf(fin, "%d %s %s %c %d %lf %d", &itemnum, category, name, &size, &quantity, &cost, &onsale) != EOF){
+		add_item(itemnum, category, name, size, quantity, cost, onsale);
 	}
-	else {
-		printf("File not found!\n");
-		return(1);
-	}
+
+	fclose(fin);
+	return 0;
 }
+
+void show_items(){
+
+	for (int i = 0; i < num_items; i++)
+		printf("%d %s %s %c %d %lf %d \n", db[i]->itemnum, category_to_str(db[i]->category), db[i]->name, db[i]->size, db[i]->quantity, db[i]->cost, db[i]->onsale);
+}
+
 item *add_item(int itemnum, char *category, char *name, char size, int
 		quantity, double cost, int onsale) {
+
 	item *i = malloc(sizeof(item));
 	i->itemnum = itemnum;
-	i->category = *category;
-	//i->name = *name;
+	i->category = str_to_category(category);
+	strcpy(i->name, name);
 	i->size = size;
 	i->quantity = quantity;
 	i->cost = cost;
 	i->onsale = onsale;
+	db[num_items] = i;
+	num_items++;
 	return i;
 }
+
+char *category_to_str(category c){
+
+	return categories[c];
+}
+
+category str_to_category(char *s){
+
+	if (strcmp(s, "clothes") == 0)
+		return clothes;
+	else if (strcmp(s, "electronics") == 0)
+		return electronics;
+	else if (strcmp(s, "tools") == 0)
+		return tools;
+	else
+		return toys;
+}
+
