@@ -55,6 +55,23 @@ item *add_item(int itemnum, char *category, char *name, char size, int
 	return i;
 }
 
+item *delete_item(int itemnum){
+
+	int i, j;
+	item *del = find_item_num(itemnum);
+	for(i = 0; i < num_items; i++){
+		if (db[i]->itemnum == itemnum){
+			j = i;
+		}
+	}
+
+	for(i = j; i < num_items-1; i++){
+		db[i] = db[i+1];
+	}
+	num_items--;	
+	return del;
+}
+
 char *category_to_str(category c){
 
 	return categories[c];
@@ -71,4 +88,17 @@ category str_to_category(char *s){
 	else
 		return toys;
 }
+
+item *find_item_num(int itemnum){
+
+	int len = sizeof(db)/sizeof(db[0]);
+	for (int i = 0; i < len; i++){
+		if (db[i]->itemnum == itemnum){
+			return db[i];
+		}
+	}
+	return 0;
+}
+
+
 

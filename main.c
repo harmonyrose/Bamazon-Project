@@ -80,7 +80,9 @@ int main(int argc, char **argv){
 			}
 
 			else if (strcmp(input[0], "delete") == 0) {
-				// FUNCTION CALL
+				int itemnum = atoi(input[1]);
+				delete_item(itemnum);
+
 			}
 
 			else if (strcmp(input[0], "updatecost") == 0) {
