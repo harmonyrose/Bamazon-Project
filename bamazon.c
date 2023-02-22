@@ -32,7 +32,18 @@ int read_db(char *filename){
 	fclose(fin);
 	return 0;
 }
-
+//writes the database into a file
+int write_db(char *filename){
+    FILE *fout = fopen(filename,"w");
+    if (fout == NULL){
+        return -1;
+    }
+   	for (int i = 0; i < num_items; i++){
+        fprintf(fout,"%d %s %s %c %d %lf %d \n", db[i]->itemnum, category_to_str(db[i]->category), db[i]->name, db[i]->size, db[i]->quantity, db[i]->cost           , db[i]->onsale);
+        }
+    fclose(fout);
+    return 0;
+}
 void show_items(){
 
 	for (int i = 0; i < num_items; i++)

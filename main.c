@@ -95,6 +95,13 @@ int main(int argc, char **argv){
 		
 			else if (strcmp(input[0], "save") == 0) {
 				// FUNCTION CALL
+               	if (argc < 2){
+	            	printf("File not found!\n");
+		            return -1;
+	            }
+	            else
+		        write_db(argv[1]);
+
 			}
 
 			else if (strcmp(input[0], "quit") == 0) {
