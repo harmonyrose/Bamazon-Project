@@ -26,7 +26,12 @@ int read_db(char *filename){
 	double cost;
 
 	while(fscanf(fin, "%d %s %s %c %d %lf %d", &itemnum, category, name, &size, &quantity, &cost, &onsale) != EOF){
+<<<<<<< HEAD
 		add_item(itemnum, category, name, size, quantity, cost, onsale);
+=======
+		db[num_items] = add_item(itemnum, category, name, size, quantity, cost, onsale);
+		num_items++;
+>>>>>>> bde3640c88a0b5661932dc2912653e32c2ef120b
 	}
 
 	fclose(fin);
@@ -50,8 +55,11 @@ item *add_item(int itemnum, char *category, char *name, char size, int
 	i->quantity = quantity;
 	i->cost = cost;
 	i->onsale = onsale;
+<<<<<<< HEAD
 	db[num_items] = i;
 	num_items++;
+=======
+>>>>>>> bde3640c88a0b5661932dc2912653e32c2ef120b
 	return i;
 }
 
