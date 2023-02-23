@@ -143,7 +143,7 @@ int get_category(item **items, category c){
     }
 
     //if items emty return 0
-    if(sizeof(items) == NULL){
+    if(sizeof(items) == 0){
         return 0;
     }
     else{

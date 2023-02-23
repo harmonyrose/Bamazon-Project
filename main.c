@@ -117,8 +117,8 @@ int main(int argc, char **argv){
                 }
                 else{
                     category c = str_to_category(argv[1]);
-                    item *item[]= //needs to be defined but unsure how
-                    get_category(items, c);
+                    item **items; //needs to be defined but unsure how
+                    get_category(items,c);
                 }
 			}	
 
