@@ -53,6 +53,13 @@ void show_items(){
 item *add_item(int itemnum, char *category, char *name, char size, int
 		quantity, double cost, int onsale) {
 
+	if (num_items > 0){
+		if (find_item_num(itemnum) != 0 && find_item_num(itemnum) != NULL){
+			item *u = find_item_num(itemnum);
+			u = update_item(itemnum, str_to_category(category), name, size, quantity, cost, onsale);
+			return u;
+		}
+	}
 
 	item *i = malloc(sizeof(item));
 	i->itemnum = itemnum;
@@ -119,8 +126,7 @@ category str_to_category(char *s){
 
 item *find_item_num(int itemnum){
 
-	int len = sizeof(db)/sizeof(db[0]);
-	for (int i = 0; i < len; i++){
+	for (int i = 0; i < num_items; i++){
 		if (db[i]->itemnum == itemnum){
 			return db[i];
 		}

@@ -68,14 +68,15 @@ int main(int argc, char **argv){
 		if (strcmp(user, "bamazon") == 0){
 
 			if (strcmp(input[0], "add") == 0) {
-				int itemnum = atoi(input[1]);
-				char *category = input[2];
-				char *name = input[3];
-				char size = *input[4];
-				int quantity = atoi(input[5]);
-				double cost = atof(input[6]);
-				int onsale = atoi(input[7]);
-				add_item(itemnum, category, name, size, quantity, cost, onsale);
+
+					int itemnum = atoi(input[1]);
+					char *category = input[2];
+					char *name = input[3];
+					char size = *input[4];
+					int quantity = atoi(input[5]);
+					double cost = atof(input[6]);
+					int onsale = atoi(input[7]);
+					add_item(itemnum, category, name, size, quantity, cost, onsale);
 				
 			}
 
