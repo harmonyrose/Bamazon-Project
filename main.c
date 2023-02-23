@@ -139,13 +139,10 @@ int main(int argc, char **argv){
                 }
                 else{
                     category c = str_to_category(argv[1]);
-<<<<<<< HEAD
                     item **items; //needs to be defined but unsure how
                     get_category(items,c);
-=======
                     //item *item[]= //needs to be defined but unsure how
                     //get_category(items, c);
->>>>>>> 9b7a12c1ea704273ea5c7fced27fe7fe0c4e7c05
                 }
 			}	
 
