@@ -110,6 +110,23 @@ item *find_item_num(int itemnum){
 	}
 	return 0;
 }
+//fills the *item[] with items where each element is category c
+//returns number of elements in items[]
+int get_category(item **items, category c){
+   for (int i = 0; i < num_items; i++){
+        if(db[i]->category == c){
+           items[i] = db[i];            
+        }
+    }
+
+    //if items emty return 0
+    if(sizeof(items) == NULL){
+        return 0;
+    }
+    else{
+        return sizeof(items);
+    }
+}
 
 
 
