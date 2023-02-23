@@ -148,20 +148,48 @@ item *find_item_num(int itemnum){
 //fills the *item[] with items where each element is category c
 //returns number of elements in items[]
 int get_category(item **items, category c){
+   int in = 0;
    for (int i = 0; i < num_items; i++){
         if(db[i]->category == c){
-           items[i] = db[i];            
+           items[in] = db[i];
+           in++;            
         }
     }
 
-    //if items emty return 0
-    if(sizeof(items) == 0){
-        return 0;
+    
+    return in;
     }
-    else{
-        return sizeof(items);
+//fills items with items where each element is category c and size
+int get_category_size(item **items,category c, char size){
+   int in = 0;
+   for (int i = 0; i < num_items; i++){
+        if(db[i]->category == c && db[i]->size == size){
+           items[in] = db[i];
+           in++;            
+        }
     }
-}
 
+    
+    return in;
+
+}
+int get_category_cost(item **items, category c, double cost){
+    int in = 0;
+    for (int i = 0; i < num_items; i++){
+        if(db[i]->category == c && db[i]->cost <  cost){
+           items[in] = db[i];
+           in++;            
+        }
+    }
+    return in;
+}
+//prints the value of item *c to string *s
+//returns number of chars in s
+int sprint_item(char *s, item *c){
+
+     s =printf("%d %s %s %c %d %lf %d \n", c->itemnum, category_to_str(c->category), c->name, c->size, c->quantity, c->cost, c->onsale);
+
+    return strlen(s);
+}
 
 
