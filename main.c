@@ -33,10 +33,15 @@ int main(int argc, char **argv){
 	// read the file from the command line
 	if (argc < 2){
 		printf("File not found!\n");
-		return -1;
+		exit(1);
 	}
-	else
+	else{
 		read_db(argv[1]);
+		if (read_db(argv[1]) == -1){
+			printf("File not found!\n");
+			exit(-1);
+		}
+	}
 
 	// allow the user to enter as a shopper or bamazon
 	char user[15];
@@ -53,7 +58,8 @@ int main(int argc, char **argv){
 
 	// reads commands from the terminal
 	char command[255];
-	while (strcmp(command, "quit") != 0 && strcmp(command, "exit") != 0){
+	int forever = 1;
+	while (forever == 1){
 		printf("Enter a command: ");
 		fgets(command, 255, stdin);
 		char *ptr = strchr(command, '\n');
@@ -125,58 +131,65 @@ int main(int argc, char **argv){
 		        		write_db(argv[1]);
 
 			}
+			else if (strcmp(input[0], "quit") == 0){
+				exit(1);
+			}
+		}
+
+		if (strcmp(user, "bamazon") == 0 || strcmp(user, "shopper") == 0){
 		
-			else if (strcmp(input[0], "showitems") == 0) {
+			if (strcmp(input[0], "showitems") == 0) {
 				show_items();
 			}
 		
 			else if (strcmp(input[0], "showcategory") == 0){
                			
-                category c = str_to_category(input[1]);
-                item *items[MAX_ITEMS];
-                int items_len = get_category(items,c);
-                if (items_len == 0){
-                    printf("No items of %s!\n",input[1]);
-                }
-                //call sprint in a loop to print items in items array
-                for(int i=0; i < items_len; i++){
-                     char s[500];
-                     sprint_item(s,items[i]);
-                     printf("%s",s);
-                }
+                		category c = str_to_category(input[1]);
+	                	item *items[MAX_ITEMS];
+	                	int items_len = get_category(items,c);
+	                	if (items_len == 0){
+	                    		printf("No items of %s!\n",input[1]);
+                		}
+                	//call sprint in a loop to print items in items array
+		                for(int i=0; i < items_len; i++){
+	        	             char s[500];
+	                	     sprint_item(s,items[i]);
+	             	       	     printf("%s",s);
+	                	}
 			}	
 
 			else if (strcmp(input[0], "showcategorycost") == 0) {
 				category c = str_to_category(input[1]);
-                double cost = atof(input[2]);
-                item *items[MAX_ITEMS];
-                int items_len = get_category_cost(items,c,cost);
-                if (items_len == 0){
-                    printf("No items less than %s!\n",input[2]);
-                }
-                //call sprint in a loop to print items in items array
-                for(int i=0; i < items_len; i++){
-                     char s[500];
-                     sprint_item(s,items[i]);
-                     printf("%s",s);
-                }		
-        	}
+		                double cost = atof(input[2]);
+		                item *items[MAX_ITEMS];
+		                int items_len = get_category_cost(items,c,cost);
+		                if (items_len == 0){
+		                    printf("No items less than %s!\n",input[2]);
+                		}
+	                //call sprint in a loop to print items in items array
+		                for(int i=0; i < items_len; i++){
+		                     char s[500];
+		                     sprint_item(s,items[i]);
+		                     printf("%s",s);
+		                }		
+	        	}
 
 			else if (strcmp(input[0], "showcategorysize") == 0) {
 			        category c = str_to_category(input[1]);
-                    char size = *input[2];
-                    item *items[MAX_ITEMS];
-                    int items_len = get_category_size(items,c,size);
-                    if (items_len == 0){
-                    printf("No items of %s!\n",input[2]);
-                    }
-                    //call sprint in a loop to print items in items array
-                    for(int i=0; i < items_len; i++){
-                        char s[500];
-                        sprint_item(s,items[i]);
-                        printf("%s",s);
-                     }		
-           	}
+	                	char size = *input[2];
+	                    	item *items[MAX_ITEMS];
+	                    	int items_len = get_category_size(items,c,size);
+
+	                    	if (items_len == 0){
+	                    	printf("No items of %s!\n",input[2]);
+	                	}
+                    	//call sprint in a loop to print items in items array
+                    		for(int i=0; i < items_len; i++){
+                        		char s[500];
+                        		sprint_item(s,items[i]);
+                        		printf("%s",s);
+                     		}		
+           		}	
 
 			else if (strcmp(input[0], "purchase") == 0) {
 				int itemnum = atoi(input[1]);
@@ -187,10 +200,15 @@ int main(int argc, char **argv){
 					purchase_item(itemnum);
 				}
 			}
+			
+			else if (strcmp(input[0], "exit") == 0){
+				write_db(argv[1]);
+				exit(1);
+			}
+
 
 			else {
-				if(strcmp(input[0], "exit") != 0 && strcmp(input[0], "quit") != 0)
-					printf("Invalid command!\n");
+				printf("Invalid command!\n");
 
 			}
 		}	
