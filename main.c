@@ -130,17 +130,17 @@ int main(int argc, char **argv){
 				show_items();
 			}
 		
-			else if (strcmp(input[0], "showcategory") == 0) {
-				
-     		        	category c = str_to_category(input[1]);
-                		item *items[MAX_ITEMS]; //needs to be defined but unsure how
-                		get_category(items,c);
+			else if (strcmp(input[0], "showcategory") == 0){
                			
                 category c = str_to_category(input[1]);
                 item *items[MAX_ITEMS];
-                get_category(items,c);
+                int items_len = get_category(items,c);
                 //call sprint in a loop to print items in items array
-               
+                for(int i=0; i < items_len; i++){
+                     char s[500];
+                     sprint_item(s,items[i]);
+                     printf("%s\n",s);
+                }
 			}	
 
 			else if (strcmp(input[0], "showcategorycost") == 0) {
