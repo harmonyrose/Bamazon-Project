@@ -34,16 +34,17 @@ int read_db(char *filename){
 }
 //writes the database into a file
 int write_db(char *filename){
-    FILE *fout = fopen(filename,"w");
-    if (fout == NULL){
-        return -1;
-    }
+    	FILE *fout = fopen(filename,"w");
+    	if (fout == NULL){
+        	return -1;
+    	}
    	for (int i = 0; i < num_items; i++){
         fprintf(fout,"%d %s %s %c %d %lf %d \n", db[i]->itemnum, category_to_str(db[i]->category), db[i]->name, db[i]->size, db[i]->quantity, db[i]->cost           , db[i]->onsale);
         }
-    fclose(fout);
-    return 0;
+    	fclose(fout);
+    	return 0;
 }
+
 void show_items(){
 
 	for (int i = 0; i < num_items; i++)
@@ -71,7 +72,6 @@ item *add_item(int itemnum, char *category, char *name, char size, int
 	i->onsale = onsale;
 	db[num_items] = i;
 	num_items++;
-
 	return i;
 }
 
@@ -148,19 +148,14 @@ item *find_item_num(int itemnum){
 //fills the *item[] with items where each element is category c
 //returns number of elements in items[]
 int get_category(item **items, category c){
-   for (int i = 0; i < num_items; i++){
-        if(db[i]->category == c){
-           items[i] = db[i];            
-        }
-    }
-
-    //if items emty return 0
-    if(sizeof(items) == 0){
-        return 0;
-    }
-    else{
-        return sizeof(items);
-    }
+	int in = 0;
+	for (int i = 0; i < num_items; i++){
+        	if(db[i]->category == c){
+           		items[in] = db[i];
+	    		in++;		
+        	}
+    	}
+        return in;
 }
 
 

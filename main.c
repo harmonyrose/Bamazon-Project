@@ -132,18 +132,11 @@ int main(int argc, char **argv){
 			}
 		
 			else if (strcmp(input[0], "showcategory") == 0) {
-				// FUNCTION CALL
-                if(argc < 2){
-                    printf("Invalid category.\n");
-                    return -1;
-                }
-                else{
-                    category c = str_to_category(argv[1]);
-                    item **items; //needs to be defined but unsure how
-                    get_category(items,c);
-                    //item *item[]= //needs to be defined but unsure how
-                    //get_category(items, c);
-                }
+				
+     		        	category c = str_to_category(input[1]);
+                		item *items[MAX_ITEMS]; //needs to be defined but unsure how
+                		get_category(items,c);
+               			
 			}	
 
 			else if (strcmp(input[0], "showcategorycost") == 0) {
