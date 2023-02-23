@@ -2,4 +2,31 @@
 2 electronics computer x 3 100.000000 100 
 3 tools drill x 5 75.900000 85 
 4 toys barbie_doll x 13 4.350000 90 
+<<<<<<< HEAD
 5 clothes cap x 200 5.000000 0 
+=======
+5 tools hammer x 3 10.000000 0 
+6 clothes ripped_jeans l 32450 45.370000 75 
+7 electronics ipad x 34 100.500000 50 
+8 toys toystory2_woody_action_figure x 512 534.990000 60 
+9 tools robotic_arm x 2 1000.000000 30 
+10 electronics computer_mouse x 900 10.150000 40 
+11 electronics shrink_ray x 305 7.000000 65 
+12 tools tazer x 53 50.450000 70 
+13 clothes crewneck_sweatshirt s 140 27.950000 0 
+14 toys jenga x 574523 20.200000 30 
+15 tools screwdriver x 2000 23.500000 90 
+16 electronics keyboard x 45 50.400000 40 
+17 toys clue_board_game x 23457 19.760000 100 
+18 clothes pokeman_hat x 32 12.750000 20 
+19 toys lincoln_logs x 13 18.920000 15 
+20 clothes socks s 47 2.500000 80 
+21 electronics samsung_galaxy_s7_edge x -1053779738 12345678909.000000 100 
+22 tools circular_saw x 666 666.660000 25 
+23 toys hungry_hungry_hippos x 321 25.750000 20 
+24 clothes blue_flower_skirt s 54 12.500000 100 
+25 clothes doc_martens l 345 150.790000 100 
+26 electronics iphone_charger x 456 10.300000 25 
+27 tools sand_paper x 80 0.500000 0 
+28 toys minecraft_lego_set x 790 28.950000 100 
+>>>>>>> f78486e71fdc2cd0e5a749bc3c1b0621710df1a0
