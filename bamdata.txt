@@ -2,9 +2,6 @@
 2 electronics computer x 3 100.000000 100 
 3 tools drill x 5 75.900000 85 
 4 toys barbie_doll x 13 4.350000 90 
-<<<<<<< HEAD
-5 clothes cap x 200 5.000000 0 
-=======
 5 tools hammer x 3 10.000000 0 
 6 clothes ripped_jeans l 32450 45.370000 75 
 7 electronics ipad x 34 100.500000 50 
@@ -28,5 +25,4 @@
 25 clothes doc_martens l 345 150.790000 100 
 26 electronics iphone_charger x 456 10.300000 25 
 27 tools sand_paper x 80 0.500000 0 
-28 toys minecraft_lego_set x 790 28.950000 100 
->>>>>>> f78486e71fdc2cd0e5a749bc3c1b0621710df1a0
+28 toys minecraft_lego_set x 790 28.950000 100
