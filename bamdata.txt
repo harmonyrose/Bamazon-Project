@@ -1,4 +1,5 @@
-1 clothes shirt m 10 10.0 100
-2 electronics computer x 3 100.0 100
-3 tools drill x 5 75.9 85
-4 toys barbie_doll x 13 4.35 90
+1 clothes shirt m 10 10.000000 100 
+2 electronics computer x 3 100.000000 100 
+3 tools drill x 5 75.900000 85 
+4 toys barbie_doll x 13 4.350000 90 
+5 clothes cap x 200 5.000000 0 
