@@ -53,6 +53,7 @@ void show_items(){
 item *add_item(int itemnum, char *category, char *name, char size, int
 		quantity, double cost, int onsale) {
 
+
 	item *i = malloc(sizeof(item));
 	i->itemnum = itemnum;
 	i->category = str_to_category(category);
@@ -63,7 +64,23 @@ item *add_item(int itemnum, char *category, char *name, char size, int
 	i->onsale = onsale;
 	db[num_items] = i;
 	num_items++;
+
 	return i;
+}
+
+item *update_item(int itemnum, category category, char *name, char size, int quantity, double cost, int onsale){
+
+	item *u = malloc(sizeof(item));
+       	u = find_item_num(itemnum);
+	u->itemnum = itemnum;
+	u->category = category;
+	strcpy(u->name, name);
+	u->size = size;
+	u->quantity = quantity;
+	u->cost = cost;
+	u->onsale = onsale;
+	
+	return u;
 }
 
 item *delete_item(int itemnum){

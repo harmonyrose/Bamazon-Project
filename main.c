@@ -95,19 +95,14 @@ int main(int argc, char **argv){
 		
 			else if (strcmp(input[0], "save") == 0) {
 				// FUNCTION CALL
-               	if (argc < 2){
-	            	printf("File not found!\n");
-		            return -1;
-	            }
-	            else
-		        write_db(argv[1]);
+               			if (argc < 2){
+	            			printf("File not found!\n");
+		            		return -1;
+	            		}
+	            		else
+		        		write_db(argv[1]);
 
 			}
-
-			else if (strcmp(input[0], "quit") == 0) {
-				// FUNCTION CALL
-			}
-
 		
 			else if (strcmp(input[0], "showitems") == 0) {
 				show_items();
@@ -126,10 +121,6 @@ int main(int argc, char **argv){
 			}
 
 			else if (strcmp(input[0], "purchase") == 0) {
-				// FUNCTION CALL
-			}
-
-			else if (strcmp(input[0], "exit") == 0) {
 				// FUNCTION CALL
 			}
 
