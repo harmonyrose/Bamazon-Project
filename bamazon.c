@@ -107,6 +107,18 @@ item *delete_item(int itemnum){
 	return del;
 }
 
+item *purchase_item(int itemnum){
+	if (find_item_num(itemnum) == NULL)
+		return 0;
+	item *p = find_item_num(itemnum);
+	p->quantity = p->quantity - 1;
+
+	purchased[purchased_items] = p;
+	purchased_items++;
+	return p;
+}
+
+
 char *category_to_str(category c){
 
 	return categories[c];
@@ -143,7 +155,7 @@ int get_category(item **items, category c){
     }
 
     //if items emty return 0
-    if(sizeof(items) == NULL){
+    if(sizeof(items) == 0){
         return 0;
     }
     else{
