@@ -148,7 +148,6 @@ item *find_item_num(int itemnum){
 //fills the *item[] with items where each element is category c
 //returns number of elements in items[]
 int get_category(item **items, category c){
-<<<<<<< HEAD
 	int in = 0;
 	for (int i = 0; i < num_items; i++){
         	if(db[i]->category == c){
@@ -157,7 +156,7 @@ int get_category(item **items, category c){
         	}
     	}
         return in;
-=======
+
    int in = 0;
    for (int i = 0; i < num_items; i++){
         if(db[i]->category == c){
@@ -200,7 +199,6 @@ int sprint_item(char *s, item *c){
      s =printf("%d %s %s %c %d %lf %d \n", c->itemnum, category_to_str(c->category), c->name, c->size, c->quantity, c->cost, c->onsale);
 
     return strlen(s);
->>>>>>> cd76bacafe7748be1969cc67626c92fa7a1b171f
 }
 
 
