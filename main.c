@@ -82,16 +82,38 @@ int main(int argc, char **argv){
 
 			else if (strcmp(input[0], "delete") == 0) {
 				int itemnum = atoi(input[1]);
-				delete_item(itemnum);
+				if (find_item_num(itemnum) == NULL){
+					printf("Invalid itemnum!\n");
+				}
+				else {
+					delete_item(itemnum);
+				}
 
 			}
 
 			else if (strcmp(input[0], "updatecost") == 0) {
-				// FUNCTION CALL
+				int itemnum = atoi(input[1]);
+				if (find_item_num(itemnum) == NULL){
+					printf("Invalid itemnum!\n");
+				}
+				else {
+					double cost = atof(input[2]);
+					item *u = find_item_num(itemnum);
+					update_item(itemnum, u->category, u->name, u->size, u->quantity, cost, u->onsale);
+				}
 			}
 		
 			else if (strcmp(input[0], "updatequantity") == 0) {
-				// FUNCTION CALL
+				int itemnum = atoi(input[1]);
+				if (find_item_num(itemnum) == NULL){
+					printf("Invalid itemnum!\n");
+				}
+				else {
+					int quantity = atoi(input[2]);
+					item *u = find_item_num(itemnum);
+					update_item(itemnum, u->category, u->name, u->size, quantity, u->cost, u->onsale);
+			
+				}
 			}
 		
 			else if (strcmp(input[0], "save") == 0) {
@@ -117,8 +139,13 @@ int main(int argc, char **argv){
                 }
                 else{
                     category c = str_to_category(argv[1]);
+<<<<<<< HEAD
                     item **items; //needs to be defined but unsure how
                     get_category(items,c);
+=======
+                    //item *item[]= //needs to be defined but unsure how
+                    //get_category(items, c);
+>>>>>>> 9b7a12c1ea704273ea5c7fced27fe7fe0c4e7c05
                 }
 			}	
 
@@ -131,7 +158,13 @@ int main(int argc, char **argv){
 			}
 
 			else if (strcmp(input[0], "purchase") == 0) {
-				// FUNCTION CALL
+				int itemnum = atoi(input[1]);
+				if (find_item_num(itemnum) == NULL) {
+					printf("Invalid itemnum!\n");
+				}
+				else {
+					purchase_item(itemnum);
+				}
 			}
 
 			else {
