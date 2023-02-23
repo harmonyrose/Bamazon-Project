@@ -90,7 +90,6 @@ int main(int argc, char **argv){
 				}
 
 			}
-
 			else if (strcmp(input[0], "updatecost") == 0) {
 				int itemnum = atoi(input[1]);
 				if (find_item_num(itemnum) == NULL){
@@ -132,19 +131,35 @@ int main(int argc, char **argv){
 			}
 		
 			else if (strcmp(input[0], "showcategory") == 0) {
+<<<<<<< HEAD
 				
      		        	category c = str_to_category(input[1]);
                 		item *items[MAX_ITEMS]; //needs to be defined but unsure how
                 		get_category(items,c);
                			
+=======
+                category c = str_to_category(input[1]);
+                item *items[MAX_ITEMS];
+                get_category(items,c);
+                //call sprint in a loop to print items in items array
+               
+>>>>>>> cd76bacafe7748be1969cc67626c92fa7a1b171f
 			}	
 
 			else if (strcmp(input[0], "showcategorycost") == 0) {
-				// FUNCTION CALL
+				category c = str_to_category(input[1]);
+                double cost = atof(input[2]);
+                item *items[MAX_ITEMS];
+                get_category_cost(items,c,cost);
+                //call sprint in a loop to print items in items array
 			}
 
 			else if (strcmp(input[0], "showcategorysize") == 0) {
-				// FUNCTION CALL
+			        category c = str_to_category(input[1]);
+                    char size = *input[2];
+                    item *items[MAX_ITEMS];
+                    get_category_size(items,c,size);
+                    //call sprint in a loop to print items in items array
 			}
 
 			else if (strcmp(input[0], "purchase") == 0) {
