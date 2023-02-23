@@ -135,11 +135,14 @@ int main(int argc, char **argv){
                 category c = str_to_category(input[1]);
                 item *items[MAX_ITEMS];
                 int items_len = get_category(items,c);
+                if (items_len == 0){
+                    printf("No items of %s!\n",input[1]);
+                }
                 //call sprint in a loop to print items in items array
                 for(int i=0; i < items_len; i++){
                      char s[500];
                      sprint_item(s,items[i]);
-                     printf("%s\n",s);
+                     printf("%s",s);
                 }
 			}	
 
@@ -147,17 +150,33 @@ int main(int argc, char **argv){
 				category c = str_to_category(input[1]);
                 double cost = atof(input[2]);
                 item *items[MAX_ITEMS];
-                get_category_cost(items,c,cost);
+                int items_len = get_category_cost(items,c,cost);
+                if (items_len == 0){
+                    printf("No items less than %s!\n",input[2]);
+                }
                 //call sprint in a loop to print items in items array
-			}
+                for(int i=0; i < items_len; i++){
+                     char s[500];
+                     sprint_item(s,items[i]);
+                     printf("%s",s);
+                }		
+        	}
 
 			else if (strcmp(input[0], "showcategorysize") == 0) {
 			        category c = str_to_category(input[1]);
                     char size = *input[2];
                     item *items[MAX_ITEMS];
-                    get_category_size(items,c,size);
+                    int items_len = get_category_size(items,c,size);
+                    if (items_len == 0){
+                    printf("No items of %s!\n",input[2]);
+                    }
                     //call sprint in a loop to print items in items array
-			}
+                    for(int i=0; i < items_len; i++){
+                        char s[500];
+                        sprint_item(s,items[i]);
+                        printf("%s",s);
+                     }		
+           	}
 
 			else if (strcmp(input[0], "purchase") == 0) {
 				int itemnum = atoi(input[1]);
