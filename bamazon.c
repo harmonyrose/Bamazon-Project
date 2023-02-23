@@ -118,6 +118,15 @@ item *purchase_item(int itemnum){
 	return p;
 }
 
+int checkout(char **receipt){
+	for(int i = 0; i < purchased_items; i++){
+		sprint_item(receipt[i], purchased[i]);
+	}
+	int bought = purchased_items;
+	purchased_items = 0;
+	return bought;
+}
+
 
 char *category_to_str(category c){
 
@@ -145,6 +154,18 @@ item *find_item_num(int itemnum){
 	}
 	return 0;
 }
+
+int find_item_str(item **items, char *s){
+	int in;
+	for (int i = 0; i < num_items; i++){
+		if (strstr(category_to_str(db[i]->category),s) != NULL || strstr(db[i]->name, s) != NULL){
+			items[in] = db[i];
+			in++;
+		}
+	}
+	return in;
+}
+	
 //fills the *item[] with items where each element is category c
 //returns number of elements in items[]
 int get_category(item **items, category c){
