@@ -208,7 +208,10 @@ int main(int argc, char **argv){
 
 
 			else {
-				printf("Invalid command!\n");
+				if(strcmp(input[0], "add") != 0 && strcmp(input[0], "delete") != 0 && strcmp(input[0], "updatecost") != 0 && strcmp(input[0], "updatequantity") != 0 && strcmp(input[0], "save") != 0) {
+
+					printf("Invalid command!\n");
+				}
 
 			}
 		}	
